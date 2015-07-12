@@ -24,7 +24,8 @@ namespace SelfHost {
         public void Start() {
             var startOptions = new StartOptions();
             startOptions.Urls.Add("http://+:80/HelloWorld");
-            startOptions.Urls.Add("https://+:443/HelloWorld");
+            // If you want to listen on HTTPS as well
+            //startOptions.Urls.Add("https://+:443/HelloWorld");
             _webhost = WebApp.Start<Startup>(startOptions);
             Console.WriteLine("Running on http://localhost/HelloWorld");
         }
@@ -32,9 +33,15 @@ namespace SelfHost {
 
 
     public class Startup {
+        // OWIN configuration bootstrapper
         public void Configuration(IAppBuilder app) {
             var listener = (HttpListener)app.Properties["System.Net.HttpListener"];
+            // Different authentication methods can be specified for the webserver here
             listener.AuthenticationSchemes = AuthenticationSchemes.Ntlm;
+            // If you want to support different authentication methods for different URLs
+            // you can use listener.AuthenticationSchemeSelectorDelegate and provide the authentication
+            // method for different paths
+            
 
             app.UseNancy();
         }
