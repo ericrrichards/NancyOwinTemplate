@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Service1.cs">
       <SubType>Component</SubType>
@@ -102,7 +103,6 @@
     <Folder Include="Content\css\" />
     <Folder Include="Content\images\" />
     <Folder Include="Content\js\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

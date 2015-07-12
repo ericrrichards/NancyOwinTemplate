@@ -26,6 +26,7 @@ namespace SelfHost {
             startOptions.Urls.Add("http://+:80/HelloWorld");
             startOptions.Urls.Add("https://+:443/HelloWorld");
             _webhost = WebApp.Start<Startup>(startOptions);
+            Console.WriteLine("Running on http://localhost/HelloWorld");
         }
     }
 

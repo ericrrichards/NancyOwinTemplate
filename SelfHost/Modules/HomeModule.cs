@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using SelfHost.Models;
 
 namespace SelfHost.Modules {
     public class HomeModule : NancyModule {
@@ -7,7 +8,7 @@ namespace SelfHost.Modules {
         }
 
         private dynamic HelloWorld(dynamic parameters) {
-            return View["Index"];
+            return View["Index", new ModelBase(Context)];
         }
     }
 }
